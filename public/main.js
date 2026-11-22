@@ -1,11 +1,10 @@
 (function () {
   var REPO = "est57/celah-research-gap";
-  var RELEASES = "https://github.com/" + REPO + "/releases/latest";
 
   var ICONS = {
-    mac: '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M16.37 1.43c0 1.14-.42 2.2-1.25 3.1-.9.98-1.99 1.55-3.17 1.46a3.2 3.2 0 0 1-.02-.43c0-1.1.48-2.27 1.33-3.2.42-.47.96-.86 1.62-1.17.65-.3 1.27-.47 1.86-.5.02.25.03.5.03.74Zm4.24 15.9c-.4.93-.88 1.78-1.43 2.56-.75 1.06-1.37 1.8-1.84 2.2-.73.67-1.52 1.02-2.36 1.04-.6 0-1.33-.17-2.18-.52-.85-.35-1.63-.52-2.35-.52-.75 0-1.56.17-2.42.52-.87.35-1.56.53-2.1.55-.8.04-1.61-.32-2.41-1.07-.51-.45-1.15-1.21-1.92-2.3-.82-1.15-1.5-2.49-2.03-4.01C.99 14.14.7 12.54.7 11c0-1.77.38-3.3 1.15-4.58a6.73 6.73 0 0 1 2.4-2.43 6.46 6.46 0 0 1 3.25-.92c.64 0 1.47.2 2.5.58 1.03.39 1.7.58 1.99.58.22 0 .96-.23 2.21-.69 1.18-.42 2.18-.6 3-.53 2.22.18 3.89 1.05 5 2.63-1.99 1.2-2.97 2.89-2.95 5.06.02 1.69.63 3.1 1.83 4.21.55.52 1.16.92 1.84 1.2-.15.43-.3.84-.47 1.24Z"/></svg>',
-    win: '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M3 5.1 10.4 4v7.1H3V5.1Zm0 13.8 7.4 1.1v-7.1H3v6Zm8.3 1.2L21 21.5V13h-9.7v7.1Zm0-16.2v7.2H21V2.5l-9.7 1.4Z"/></svg>',
-    linux: '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2c-2.2 0-3.6 1.8-3.6 4.4 0 1.3.3 2.3-.5 3.6-.9 1.4-2.6 3.4-2.9 5.9-.2 1.6.4 2.6.9 3.1-.6.4-1.6.6-1.6 1.5 0 1 1.4 1.1 3 1.4 1.3.2 2.1 1 3.2 1 .8 0 1.4-.4 1.6-.9h.8c.2.5.8.9 1.6.9 1.1 0 1.9-.8 3.2-1 1.6-.3 3-.4 3-1.4 0-.9-1-1.1-1.6-1.5.5-.5 1.1-1.5.9-3.1-.3-2.5-2-4.5-2.9-5.9-.8-1.3-.5-2.3-.5-3.6C15.6 3.8 14.2 2 12 2Zm-1.4 4c.4 0 .7.5.7 1.1 0 .6-.3 1.1-.7 1.1-.4 0-.7-.5-.7-1.1 0-.6.3-1.1.7-1.1Zm2.8 0c.4 0 .7.5.7 1.1 0 .6-.3 1.1-.7 1.1-.4 0-.7-.5-.7-1.1 0-.6.3-1.1.7-1.1ZM12 9c.9 0 2 .6 2 1s-1.1 1.1-2 1.1-2-.7-2-1.1 1.1-1 2-1Z"/></svg>'
+    mac: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>',
+    win: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M1.5 4.2 10 3v8.4H1.5V4.2Zm0 15.6L10 21v-8.4H1.5v7.2Zm9.7 1.4 11.3 1.6V12.6H11.2v8.6Zm0-18.4v8.6h11.3V1.2L11.2 2.8Z"/></svg>',
+    linux: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M12 1.5c-2.6 0-4 2.1-4 4.6 0 1.6.3 2.4-.7 3.9C6.1 11.8 4.5 14 4.5 16.6c0 1.2.4 2 .9 2.5-.7.5-1.9.8-1.9 1.7 0 1.1 1.7 1.3 3.5 1.6 1.2.2 2 .9 3 .9.8 0 1.3-.4 1.6-.9h.8c.3.5.8.9 1.6.9 1 0 1.8-.7 3-.9 1.8-.3 3.5-.5 3.5-1.6 0-.9-1.2-1.2-1.9-1.7.5-.5.9-1.3.9-2.5 0-2.6-1.6-4.8-2.8-6.6-1-1.5-.7-2.3-.7-3.9 0-2.5-1.4-4.6-4-4.6Zm0 8.6c-1.9 0-3.4 2.7-3.4 5.9 0 2.2 1.5 3.5 3.4 3.5s3.4-1.3 3.4-3.5c0-3.2-1.5-5.9-3.4-5.9ZM10.6 4.4c-.5 0-.8.5-.8 1.1s.3 1.1.8 1.1.8-.5.8-1.1-.3-1.1-.8-1.1Zm2.8 0c-.5 0-.8.5-.8 1.1s.3 1.1.8 1.1.8-.5.8-1.1-.3-1.1-.8-1.1Z"/></svg>'
   };
   var NAMES = { mac: "macOS", win: "Windows", linux: "Linux" };
   var PRIMARY = { mac: "aarch64.dmg", win: "x64-setup.exe", linux: ".AppImage" };
@@ -13,16 +12,57 @@
   function detectOS() {
     var p = ((navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || "").toLowerCase();
     var ua = navigator.userAgent.toLowerCase();
-    if (/iphone|ipad|android/.test(ua)) return null;
+    if (/iphone|ipad|ipod|android/.test(ua)) return null;
+    if (navigator.maxTouchPoints > 1 && /mac/.test(p)) return null; // iPadOS reports as Mac
     if (p.indexOf("mac") > -1 || ua.indexOf("mac os") > -1) return "mac";
     if (p.indexOf("win") > -1 || ua.indexOf("windows") > -1) return "win";
-    if (p.indexOf("linux") > -1 || ua.indexOf("linux") > -1) return "linux";
+    if (p.indexOf("linux") > -1 || ua.indexOf("linux") > -1 || ua.indexOf("x11") > -1) return "linux";
+    return null;
+  }
+
+  // Best-effort Mac chip detection. Resolves "intel", "arm", or null (unknown).
+  function detectMacChip() {
+    var uad = navigator.userAgentData;
+    if (uad && uad.getHighEntropyValues) {
+      return uad.getHighEntropyValues(["architecture"]).then(function (v) {
+        if (v.architecture === "x86") return "intel";
+        if (v.architecture === "arm") return "arm";
+        return glChip();
+      }).catch(glChip);
+    }
+    return Promise.resolve(glChip());
+  }
+  function glChip() {
+    try {
+      var gl = document.createElement("canvas").getContext("webgl");
+      var ext = gl && gl.getExtension("WEBGL_debug_renderer_info");
+      var r = ext ? String(gl.getParameter(ext.UNMASKED_RENDERER_WEBGL)).toLowerCase() : "";
+      if (/apple m\d|apple gpu.*m\d/.test(r)) return "arm";
+      if (/intel|amd|radeon/.test(r)) return "intel";
+    } catch (e) {}
     return null;
   }
 
   var os = detectOS();
   var heroBtn = document.getElementById("hero-download");
   var heroNote = document.getElementById("hero-note");
+  var releaseAssets = null;
+
+  function applyAssets() {
+    if (!releaseAssets) return;
+    document.querySelectorAll("[data-asset]").forEach(function (el) {
+      var suffix = el.dataset.asset;
+      var hit = releaseAssets.find(function (a) { return a.name.slice(-suffix.length) === suffix; });
+      if (hit) { el.href = hit.browser_download_url; el.removeAttribute("target"); }
+    });
+  }
+
+  function setMacVariant(chip) {
+    var intel = chip === "intel";
+    heroBtn.dataset.asset = intel ? "x64.dmg" : "aarch64.dmg";
+    heroNote.innerHTML = (intel ? "Untuk Mac Intel. Pakai Apple Silicon (M1 ke atas)?" : chip === "arm" ? "Untuk Apple Silicon (M1 ke atas). Pakai Mac Intel?" : "Untuk Apple Silicon (M1 ke atas). Mac Intel, Windows, atau Linux?") + ' <a href="#unduh">Pilihan lain</a>';
+    applyAssets();
+  }
 
   if (os) {
     heroBtn.querySelector(".os-icon").innerHTML = ICONS[os];
@@ -30,23 +70,25 @@
     heroBtn.dataset.asset = PRIMARY[os];
     var card = document.querySelector('.os[data-os="' + os + '"]');
     if (card) card.classList.add("current");
-    heroNote.innerHTML = os === "mac"
-      ? 'Untuk Apple Silicon. Mac Intel, Windows, atau Linux? <a href="#unduh">Pilihan lain</a>'
-      : 'Sistem lain? <a href="#unduh">Lihat semua unduhan</a>';
+    if (os === "mac") {
+      setMacVariant(null);
+      detectMacChip().then(setMacVariant);
+    } else {
+      heroNote.innerHTML = 'Untuk ' + NAMES[os] + (os === "win" ? " 10/11 (64-bit)" : " (AppImage)") + '. Sistem lain? <a href="#unduh">Lihat semua unduhan</a>';
+    }
   } else {
+    heroBtn.querySelector(".label").textContent = "Lihat unduhan";
+    delete heroBtn.dataset.asset;
     heroBtn.href = "#unduh";
+    heroNote.textContent = "Celah adalah aplikasi desktop untuk macOS, Windows, dan Linux";
   }
 
   // Resolve direct download links from the latest GitHub release.
   fetch("https://api.github.com/repos/" + REPO + "/releases/latest", { headers: { Accept: "application/vnd.github+json" } })
     .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
     .then(function (rel) {
-      var assets = (rel.assets || []).filter(function (a) { return !/\.sig$/.test(a.name); });
-      document.querySelectorAll("[data-asset]").forEach(function (el) {
-        var suffix = el.dataset.asset;
-        var hit = assets.find(function (a) { return a.name.slice(-suffix.length) === suffix; });
-        if (hit) { el.href = hit.browser_download_url; el.removeAttribute("target"); }
-      });
+      releaseAssets = (rel.assets || []).filter(function (a) { return !/\.sig$/.test(a.name); });
+      applyAssets();
       if (rel.tag_name) {
         var v = rel.tag_name.replace(/^v/, "");
         document.querySelectorAll("[data-version]").forEach(function (el) { el.textContent = v; });
