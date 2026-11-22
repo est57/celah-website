@@ -70,6 +70,16 @@ p { margin: 0; }
 .chip-light:hover { background: #fafaf8; }
 .chip-dark { background: var(--ink); color: #fff; }
 .chip-dark:hover { background: #2b3138; }
+.lang-switch { display: inline-flex; height: 36px; padding: 3px; border-radius: 10px; background: var(--bg-2); border: 1px solid var(--line-2); }
+.lang-switch button {
+  border: 0; background: transparent; cursor: pointer;
+  min-width: 34px; padding: 0 8px; border-radius: 7px;
+  font: 500 12.5px/1 var(--sans); letter-spacing: .02em; color: var(--ink-3);
+  transition: background .15s, color .15s, box-shadow .15s;
+}
+.lang-switch button:hover { color: var(--ink); }
+.lang-switch button[aria-pressed="true"] { background: var(--card); color: var(--ink); box-shadow: 0 1px 2px rgba(0,0,0,.08); }
+.lang-switch button:focus-visible, .chip:focus-visible, .btn:focus-visible, .menu-btn:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
 .menu-btn { display: none; width: 40px; height: 36px; border: 1px solid var(--line-2); background: var(--card); border-radius: 10px; cursor: pointer; padding: 0; flex-direction: column; align-items: center; justify-content: center; gap: 5px; }
 .menu-btn span { width: 16px; height: 1.5px; background: var(--ink); transition: transform .2s; }
 .menu-btn[aria-expanded="true"] span:first-child { transform: translateY(3.25px) rotate(45deg); }
@@ -249,7 +259,7 @@ p { margin: 0; }
 .os.current { border-color: #efb58e; box-shadow: 0 0 0 4px var(--orange-soft); background: #fff; }
 .os h3 { font-size: 18px; font-weight: 500; margin-bottom: 4px; display: flex; align-items: center; justify-content: space-between; }
 .os .btn { height: 44px; font-size: 15px; padding: 0 16px; }
-.os.current h3::after { content: "Sistem Anda"; font-size: 12px; font-weight: 500; color: var(--orange-ink); background: var(--orange-soft); padding: 2px 8px; border-radius: 999px; letter-spacing: 0; }
+.os.current h3::after { content: attr(data-badge); font-size: 12px; font-weight: 500; color: var(--orange-ink); background: var(--orange-soft); padding: 2px 8px; border-radius: 999px; letter-spacing: 0; }
 .btn-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .notice { margin-top: 28px; border: 1px solid var(--line); border-radius: 14px; padding: 4px 20px; background: #fbfaf8; }
 .notice summary { cursor: pointer; padding: 14px 0; font-weight: 500; font-size: 15px; list-style: none; display: flex; justify-content: space-between; align-items: center; }

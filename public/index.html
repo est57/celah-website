@@ -7,6 +7,9 @@
   <meta name="description" content="Celah adalah aplikasi desktop gratis dan open-source untuk analisis bibliometrik dan pencarian celah penelitian yang didukung bukti dokumen. Semua data tersimpan di komputer Anda.">
   <meta name="theme-color" content="#f4f3f0">
   <link rel="canonical" href="https://celah.org/">
+  <link rel="alternate" hreflang="id" href="https://celah.org/?lang=id">
+  <link rel="alternate" hreflang="en" href="https://celah.org/?lang=en">
+  <link rel="alternate" hreflang="x-default" href="https://celah.org/">
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/assets/icon-512.png">
 
@@ -26,34 +29,38 @@
 
 <header class="nav" id="top">
   <div class="nav-inner">
-    <a href="/" class="brand" aria-label="Celah, beranda">
+    <a href="/" class="brand" aria-label="Celah, beranda" data-i18n-aria="aria.home">
       <img src="/assets/icon-128.png" alt="" width="28" height="28">
       <span>Celah</span>
     </a>
-    <nav class="nav-links" aria-label="Utama">
-      <a href="#fitur">Fitur</a>
-      <a href="#alur">Alur kerja</a>
-      <a href="#unduh">Unduh</a>
-      <a href="https://github.com/est57/celah-research-gap/blob/main/docs/PANDUAN.md" target="_blank" rel="noopener">Panduan</a>
+    <nav class="nav-links" aria-label="Utama" data-i18n-aria="aria.main">
+      <a href="#fitur" data-i18n="nav.features">Fitur</a>
+      <a href="#alur" data-i18n="nav.workflow">Alur kerja</a>
+      <a href="#unduh" data-i18n="nav.download">Unduh</a>
+      <a href="https://github.com/est57/celah-research-gap/blob/main/docs/PANDUAN.md" target="_blank" rel="noopener" data-i18n="nav.guide">Panduan</a>
     </nav>
     <div class="nav-actions">
+      <div class="lang-switch" role="group" aria-label="Bahasa" data-i18n-aria="aria.lang">
+        <button type="button" data-lang="id" aria-pressed="true" title="Bahasa Indonesia">ID</button>
+        <button type="button" data-lang="en" aria-pressed="false" title="English">EN</button>
+      </div>
       <a href="#unduh" class="chip chip-light">
-        <img src="/assets/icon-128.png" alt="" width="16" height="16"> Unduh
+        <img src="/assets/icon-128.png" alt="" width="16" height="16"> <span data-i18n="nav.download">Unduh</span>
       </a>
-      <a href="https://github.com/est57/celah-research-gap" class="chip chip-dark" target="_blank" rel="noopener" aria-label="Kode sumber di GitHub">
+      <a href="https://github.com/est57/celah-research-gap" class="chip chip-dark" target="_blank" rel="noopener" aria-label="Kode sumber di GitHub" data-i18n-aria="aria.github">
         <svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
         <span class="hide-sm">GitHub</span>
       </a>
-      <button class="menu-btn" aria-label="Buka menu" aria-expanded="false" aria-controls="mobile-menu">
+      <button class="menu-btn" aria-label="Buka menu" data-i18n-aria="aria.menu" aria-expanded="false" aria-controls="mobile-menu">
         <span></span><span></span>
       </button>
     </div>
   </div>
-  <nav class="mobile-menu" id="mobile-menu" aria-label="Menu seluler" hidden>
-    <a href="#fitur">Fitur</a>
-    <a href="#alur">Alur kerja</a>
-    <a href="#unduh">Unduh</a>
-    <a href="https://github.com/est57/celah-research-gap/blob/main/docs/PANDUAN.md" target="_blank" rel="noopener">Panduan</a>
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Menu seluler" data-i18n-aria="aria.mobile" hidden>
+    <a href="#fitur" data-i18n="nav.features">Fitur</a>
+    <a href="#alur" data-i18n="nav.workflow">Alur kerja</a>
+    <a href="#unduh" data-i18n="nav.download">Unduh</a>
+    <a href="https://github.com/est57/celah-research-gap/blob/main/docs/PANDUAN.md" target="_blank" rel="noopener" data-i18n="nav.guide">Panduan</a>
   </nav>
 </header>
 
@@ -63,15 +70,15 @@
   <section class="hero">
     <div class="hero-pattern" aria-hidden="true"></div>
     <div class="wrap hero-inner">
-      <p class="eyebrow-pill"><span class="dot"></span> Versi <span data-version>0.1.3</span> · gratis &amp; open-source</p>
-      <h1>Temukan celah penelitian, <em>lengkap dengan buktinya</em></h1>
-      <p class="lead">Petakan sebuah bidang riset secara bibliometrik, lalu tinjau kandidat celah beserta dokumen pendukungnya sampai menjadi draf bab yang siap disunting. Lokal, tanpa akun, di komputer Anda.</p>
+      <p class="eyebrow-pill"><span class="dot"></span> <span data-i18n="hero.version">Versi</span> <span data-version>0.1.3</span> · <span data-i18n="hero.free">gratis &amp; open-source</span></p>
+      <h1 data-i18n="hero.title">Temukan celah penelitian, <em>lengkap dengan buktinya</em></h1>
+      <p class="lead" data-i18n="hero.lead">Petakan sebuah bidang riset secara bibliometrik, lalu tinjau kandidat celah beserta dokumen pendukungnya sampai menjadi draf bab yang siap disunting. Lokal, tanpa akun, di komputer Anda.</p>
       <div class="cta-row">
         <a class="btn btn-primary" id="hero-download" href="https://github.com/est57/celah-research-gap/releases/latest">
           <span class="os-icon" aria-hidden="true"></span>
           <span class="label">Unduh Celah</span>
         </a>
-        <a class="btn btn-ghost" href="https://github.com/est57/celah-research-gap/blob/main/docs/PANDUAN.md" target="_blank" rel="noopener">Baca panduan <span aria-hidden="true">↗</span></a>
+        <a class="btn btn-ghost" href="https://github.com/est57/celah-research-gap/blob/main/docs/PANDUAN.md" target="_blank" rel="noopener"><span data-i18n="hero.guide">Baca panduan</span> <span aria-hidden="true">↗</span></a>
       </div>
       <p class="hero-note" id="hero-note">Tersedia untuk macOS, Windows, dan Linux</p>
     </div>
@@ -83,7 +90,7 @@
           <span class="app-title"><img src="/assets/icon-128.png" alt="" width="14" height="14"> Celah — Gap Explorer</span>
           <span></span>
         </div>
-        <img src="/assets/gap-explorer.webp" width="1440" height="874" alt="Gap Explorer di Celah: daftar kandidat celah penelitian dengan skor, bukti dokumen, verifikasi literatur terbaru, dan saran pertanyaan riset" fetchpriority="high">
+        <img src="/assets/gap-explorer.webp" width="1440" height="874" data-i18n-alt="alt.hero" alt="Gap Explorer di Celah: daftar kandidat celah penelitian dengan skor, bukti dokumen, verifikasi literatur terbaru, dan saran pertanyaan riset" fetchpriority="high">
       </figure>
     </div>
   </section>
@@ -91,10 +98,10 @@
   <!-- SOURCES STRIP -->
   <section class="sources" aria-labelledby="sources-title">
     <div class="wrap">
-      <h2 id="sources-title" class="small-title">Mengambil data dari sumber terbuka dan file ekspor yang sudah Anda punya</h2>
-      <p class="small-sub">Cari langsung ke enam basis data, atau impor ekspor dari pengelola referensi dan basis data berlangganan</p>
+      <h2 id="sources-title" class="small-title" data-i18n="sources.title">Mengambil data dari sumber terbuka dan file ekspor yang sudah Anda punya</h2>
+      <p class="small-sub" data-i18n="sources.sub">Cari langsung ke enam basis data, atau impor ekspor dari pengelola referensi dan basis data berlangganan</p>
     </div>
-    <div class="marquee" aria-hidden="false">
+    <div class="marquee">
       <div class="marquee-track">
         <ul class="logo-row">
           <li>OpenAlex</li><li>Crossref</li><li>Semantic Scholar</li><li>PubMed</li><li>Europe PMC</li><li>arXiv</li>
@@ -112,78 +119,78 @@
   <section class="features" id="fitur">
     <div class="wrap">
       <header class="section-head">
-        <h2>Dari ribuan dokumen <strong>sampai satu celah</strong> yang bisa dipertanggungjawabkan</h2>
-        <p>Setiap kandidat celah datang bersama skor, dokumen bukti, dan pertanyaan riset. Anda yang memutuskan.</p>
+        <h2 data-i18n="feat.title">Dari ribuan dokumen <strong>sampai satu celah</strong> yang bisa dipertanggungjawabkan</h2>
+        <p data-i18n="feat.sub">Setiap kandidat celah datang bersama skor, dokumen bukti, dan pertanyaan riset. Anda yang memutuskan.</p>
       </header>
 
       <article class="feature-card">
         <div class="feature-text">
-          <span class="kicker">Kumpulkan &amp; rapikan</span>
-          <h3>Koleksi yang bersih sebelum dianalisis</h3>
-          <p class="accent-line">Cari ke enam sumber sekaligus, atau impor Scopus, Web of Science, PubMed, dan RIS.</p>
-          <p>Gabungkan duplikat lintas sumber, satukan sinonim kata kunci dan ejaan nama penulis, lengkapi daftar rujukan lewat Crossref, dan tambahkan kuartil jurnal dari SJR.</p>
+          <span class="kicker" data-i18n="f1.kicker">Kumpulkan &amp; rapikan</span>
+          <h3 data-i18n="f1.title">Koleksi yang bersih sebelum dianalisis</h3>
+          <p class="accent-line" data-i18n="f1.accent">Cari ke enam sumber sekaligus, atau impor Scopus, Web of Science, PubMed, dan RIS.</p>
+          <p data-i18n="f1.body">Gabungkan duplikat lintas sumber, satukan sinonim kata kunci dan ejaan nama penulis, lengkapi daftar rujukan lewat Crossref, dan tambahkan kuartil jurnal dari SJR.</p>
           <ul class="ticks">
-            <li>Penggabungan duplikat lintas sumber</li>
-            <li>Sinonim kata kunci berlaku di semua analisis</li>
-            <li>Laporan kualitas metadata per bidang</li>
+            <li data-i18n="f1.t1">Penggabungan duplikat lintas sumber</li>
+            <li data-i18n="f1.t2">Sinonim kata kunci berlaku di semua analisis</li>
+            <li data-i18n="f1.t3">Laporan kualitas metadata per bidang</li>
           </ul>
         </div>
         <div class="feature-media">
-          <img src="/assets/ringkasan.webp" width="1440" height="874" loading="lazy" alt="Layar Ringkasan: informasi utama koleksi, produksi tahunan, dan plot tiga bidang">
+          <img src="/assets/ringkasan.webp" width="1440" height="874" loading="lazy" data-i18n-alt="alt.f1" alt="Layar Ringkasan: informasi utama koleksi, produksi tahunan, dan plot tiga bidang">
         </div>
       </article>
 
       <article class="feature-card reverse">
         <div class="feature-text">
-          <span class="kicker">Struktur pengetahuan</span>
-          <h3>Lihat bentuk sebuah bidang</h3>
-          <p class="accent-line">Peta tematik, evolusi tema, jaringan ko-kemunculan, ko-sitasi, kopling bibliografis, historiograf, dan RPYS.</p>
-          <p>Analisis deskriptif lengkap: produksi tahunan, sitasi, hukum Bradford dan Lotka, negara dan kolaborasi internasional. Grafik jaringan bisa di-zoom, digeser, dan disimpan sebagai SVG atau PNG.</p>
+          <span class="kicker" data-i18n="f2.kicker">Struktur pengetahuan</span>
+          <h3 data-i18n="f2.title">Lihat bentuk sebuah bidang</h3>
+          <p class="accent-line" data-i18n="f2.accent">Peta tematik, evolusi tema, jaringan ko-kemunculan, ko-sitasi, kopling bibliografis, historiograf, dan RPYS.</p>
+          <p data-i18n="f2.body">Analisis deskriptif lengkap: produksi tahunan, sitasi, hukum Bradford dan Lotka, negara dan kolaborasi internasional. Grafik jaringan bisa di-zoom, digeser, dan disimpan sebagai SVG atau PNG.</p>
         </div>
         <div class="feature-media">
-          <img src="/assets/peta-tematik.webp" width="1440" height="874" loading="lazy" alt="Peta tematik dengan empat kuadran: tema motor, niche, baru muncul atau menurun, dan dasar">
+          <img src="/assets/peta-tematik.webp" width="1440" height="874" loading="lazy" data-i18n-alt="alt.f2" alt="Peta tematik dengan empat kuadran: tema motor, niche, baru muncul atau menurun, dan dasar">
         </div>
       </article>
 
       <article class="feature-card">
         <div class="feature-text">
-          <span class="kicker">Pencarian celah</span>
-          <h3>Kandidat celah, bukan tebakan</h3>
-          <p class="accent-line">Tema peluang dan Gap Explorer menggabungkan beberapa detektor menjadi satu daftar berperingkat.</p>
-          <p>Setiap kandidat punya skor kebaruan, bukti, dan momentum, dokumen yang mendukungnya, dan saran pertanyaan riset. Uji ide celah Anda sendiri, lalu verifikasi ke literatur terbaru di luar koleksi sebelum Anda menulis.</p>
+          <span class="kicker" data-i18n="f3.kicker">Pencarian celah</span>
+          <h3 data-i18n="f3.title">Kandidat celah, bukan tebakan</h3>
+          <p class="accent-line" data-i18n="f3.accent">Tema peluang dan Gap Explorer menggabungkan beberapa detektor menjadi satu daftar berperingkat.</p>
+          <p data-i18n="f3.body">Setiap kandidat punya skor kebaruan, bukti, dan momentum, dokumen yang mendukungnya, dan saran pertanyaan riset. Uji ide celah Anda sendiri, lalu verifikasi ke literatur terbaru di luar koleksi sebelum Anda menulis.</p>
           <ul class="ticks">
-            <li>Skor kebaruan · bukti · momentum</li>
-            <li>Review: diterima, perlu cek, ditolak</li>
-            <li>Cek ulang ke paper dua tahun terakhir</li>
+            <li data-i18n="f3.t1">Skor kebaruan · bukti · momentum</li>
+            <li data-i18n="f3.t2">Review: diterima, perlu cek, ditolak</li>
+            <li data-i18n="f3.t3">Cek ulang ke paper dua tahun terakhir</li>
           </ul>
         </div>
         <div class="feature-media">
-          <img src="/assets/tema-peluang.webp" width="1440" height="874" loading="lazy" alt="Layar Tema peluang: tema yang tumbuh cepat tetapi jarang terhubung dengan tema utama">
+          <img src="/assets/tema-peluang.webp" width="1440" height="874" loading="lazy" data-i18n-alt="alt.f3" alt="Layar Tema peluang: tema yang tumbuh cepat tetapi jarang terhubung dengan tema utama">
         </div>
       </article>
 
       <article class="feature-card reverse">
         <div class="feature-text">
-          <span class="kicker">Keluaran</span>
-          <h3>Dari celah ke draf bab</h3>
-          <p class="accent-line">Draf research gap serta draf metode &amp; hasil, siap disunting.</p>
-          <p>Pilih gaya sitasi APA 7 atau IEEE, dalam bahasa Indonesia atau English. Ekspor BibTeX, RIS, CSV, dan gambar grafik untuk naskah Anda.</p>
+          <span class="kicker" data-i18n="f4.kicker">Keluaran</span>
+          <h3 data-i18n="f4.title">Dari celah ke draf bab</h3>
+          <p class="accent-line" data-i18n="f4.accent">Draf research gap serta draf metode &amp; hasil, siap disunting.</p>
+          <p data-i18n="f4.body">Pilih gaya sitasi APA 7 atau IEEE, dalam bahasa Indonesia atau English. Ekspor BibTeX, RIS, CSV, dan gambar grafik untuk naskah Anda.</p>
         </div>
         <div class="feature-media">
-          <img src="/assets/laporan.webp" width="1440" height="874" loading="lazy" alt="Draf bab research gap lengkap dengan daftar pustaka">
+          <img src="/assets/laporan.webp" width="1440" height="874" loading="lazy" data-i18n-alt="alt.f4" alt="Draf bab research gap lengkap dengan daftar pustaka">
         </div>
       </article>
 
       <!-- PRIVACY -->
       <article class="feature-card center">
-        <span class="kicker">Lokal &amp; aman</span>
-        <h3 class="big">Data riset Anda tidak pernah meninggalkan komputer</h3>
-        <p class="center-lead">Tanpa akun. Tanpa langganan. Tanpa sinkronisasi cloud. Celah hanya menghubungi sumber data yang Anda pilih, dan kunci API disimpan di keychain sistem, bukan di file.</p>
+        <span class="kicker" data-i18n="priv.kicker">Lokal &amp; aman</span>
+        <h3 class="big" data-i18n="priv.title">Data riset Anda tidak pernah meninggalkan komputer</h3>
+        <p class="center-lead" data-i18n="priv.lead">Tanpa akun. Tanpa langganan. Tanpa sinkronisasi cloud. Celah hanya menghubungi sumber data yang Anda pilih, dan kunci API disimpan di keychain sistem, bukan di file.</p>
         <div class="trait-grid">
-          <div class="trait"><b>Tanpa akun</b><span>Buka dan langsung bekerja.</span></div>
-          <div class="trait"><b>Keychain sistem</b><span>Kunci API tersimpan aman.</span></div>
-          <div class="trait"><b>Open-source MIT</b><span>Kode bisa diperiksa siapa saja.</span></div>
-          <div class="trait"><b>Pembaruan otomatis</b><span>Pengaturan › Tentang › Periksa pembaruan.</span></div>
+          <div class="trait"><b data-i18n="priv.a1">Tanpa akun</b><span data-i18n="priv.a2">Buka dan langsung bekerja.</span></div>
+          <div class="trait"><b data-i18n="priv.b1">Keychain sistem</b><span data-i18n="priv.b2">Kunci API tersimpan aman.</span></div>
+          <div class="trait"><b>Open-source MIT</b><span data-i18n="priv.c2">Kode bisa diperiksa siapa saja.</span></div>
+          <div class="trait"><b data-i18n="priv.d1">Pembaruan otomatis</b><span data-i18n="priv.d2">Pengaturan › Tentang › Periksa pembaruan.</span></div>
         </div>
       </article>
     </div>
@@ -193,35 +200,35 @@
   <section class="workflow" id="alur">
     <div class="wrap">
       <header class="section-head">
-        <h2>Enam langkah, <strong>satu alur yang jelas</strong></h2>
-        <p>Layar pertama Celah selalu menunjukkan Anda sedang di mana dan apa langkah berikutnya.</p>
+        <h2 data-i18n="wf.title">Enam langkah, <strong>satu alur yang jelas</strong></h2>
+        <p data-i18n="wf.sub">Layar pertama Celah selalu menunjukkan Anda sedang di mana dan apa langkah berikutnya.</p>
       </header>
       <ol class="steps">
-        <li><span class="n">01</span><h4>Kumpulkan</h4><p>Tulis topik riset dan pilih sumber, atau impor file ekspor.</p></li>
-        <li><span class="n">02</span><h4>Rapikan</h4><p>Gabungkan duplikat, sinonim kata kunci, dan nama penulis.</p></li>
-        <li><span class="n">03</span><h4>Deskripsikan</h4><p>Produksi, sitasi, sumber, penulis, dan negara.</p></li>
-        <li><span class="n">04</span><h4>Petakan</h4><p>Struktur konseptual, intelektual, dan sosial bidang.</p></li>
-        <li><span class="n">05</span><h4>Temukan celah</h4><p>Tinjau kandidat, tandai diterima, verifikasi ke literatur terbaru.</p></li>
-        <li><span class="n">06</span><h4>Tulis</h4><p>Susun draf bab dan ekspor referensi.</p></li>
+        <li><span class="n">01</span><h4 data-i18n="wf.s1">Kumpulkan</h4><p data-i18n="wf.s1d">Tulis topik riset dan pilih sumber, atau impor file ekspor.</p></li>
+        <li><span class="n">02</span><h4 data-i18n="wf.s2">Rapikan</h4><p data-i18n="wf.s2d">Gabungkan duplikat, sinonim kata kunci, dan nama penulis.</p></li>
+        <li><span class="n">03</span><h4 data-i18n="wf.s3">Deskripsikan</h4><p data-i18n="wf.s3d">Produksi, sitasi, sumber, penulis, dan negara.</p></li>
+        <li><span class="n">04</span><h4 data-i18n="wf.s4">Petakan</h4><p data-i18n="wf.s4d">Struktur konseptual, intelektual, dan sosial bidang.</p></li>
+        <li><span class="n">05</span><h4 data-i18n="wf.s5">Temukan celah</h4><p data-i18n="wf.s5d">Tinjau kandidat, tandai diterima, verifikasi ke literatur terbaru.</p></li>
+        <li><span class="n">06</span><h4 data-i18n="wf.s6">Tulis</h4><p data-i18n="wf.s6d">Susun draf bab dan ekspor referensi.</p></li>
       </ol>
       <figure class="app-window small">
         <div class="app-bar" aria-hidden="true">
           <span class="lights"><i></i><i></i><i></i></span>
-          <span class="app-title">Alur kerja</span>
+          <span class="app-title" data-i18n="nav.workflow">Alur kerja</span>
           <span></span>
         </div>
-        <img src="/assets/alur-kerja.webp" width="1440" height="874" loading="lazy" alt="Layar Alur kerja Celah dengan enam langkah penelitian">
+        <img src="/assets/alur-kerja.webp" width="1440" height="874" loading="lazy" data-i18n-alt="alt.wf" alt="Layar Alur kerja Celah dengan enam langkah penelitian">
       </figure>
     </div>
   </section>
 
   <!-- STATS -->
-  <section class="stats-band" aria-label="Celah dalam angka">
+  <section class="stats-band" aria-label="Celah dalam angka" data-i18n-aria="aria.stats">
     <div class="wrap stats">
-      <div><b>6</b><span>sumber pencarian terbuka</span></div>
-      <div><b>4</b><span>format impor ekspor</span></div>
-      <div><b>20+</b><span>layar analisis</span></div>
-      <div><b>2</b><span>bahasa: Indonesia &amp; English</span></div>
+      <div><b>6</b><span data-i18n="st.1">sumber pencarian terbuka</span></div>
+      <div><b>4</b><span data-i18n="st.2">format impor ekspor</span></div>
+      <div><b>20+</b><span data-i18n="st.3">layar analisis</span></div>
+      <div><b>2</b><span data-i18n="st.4">bahasa: Indonesia &amp; English</span></div>
     </div>
   </section>
 
@@ -229,15 +236,15 @@
   <section class="gallery">
     <div class="wrap">
       <header class="section-head">
-        <h2>Dirancang untuk <strong>membaca data</strong>, bukan dekorasi</h2>
+        <h2 data-i18n="gal.title">Dirancang untuk <strong>membaca data</strong>, bukan dekorasi</h2>
       </header>
       <figure class="app-window small">
         <div class="app-bar" aria-hidden="true">
           <span class="lights"><i></i><i></i><i></i></span>
-          <span class="app-title">Negara &amp; kolaborasi</span>
+          <span class="app-title" data-i18n="gal.win">Negara &amp; kolaborasi</span>
           <span></span>
         </div>
-        <img src="/assets/negara.webp" width="1440" height="874" loading="lazy" alt="Peta dunia produksi riset dan jaringan kolaborasi antarnegara">
+        <img src="/assets/negara.webp" width="1440" height="874" loading="lazy" data-i18n-alt="alt.gal" alt="Peta dunia produksi riset dan jaringan kolaborasi antarnegara">
       </figure>
     </div>
   </section>
@@ -248,8 +255,8 @@
       <div class="download-card">
         <div class="download-head">
           <img src="/assets/icon-512.png" alt="" width="72" height="72">
-          <h2>Unduh Celah</h2>
-          <p>Versi <span data-version>0.1.3</span>. Gratis untuk semua orang, di semua sistem.</p>
+          <h2 data-i18n="dl.title">Unduh Celah</h2>
+          <p><span data-i18n="hero.version">Versi</span> <span data-version>0.1.3</span>. <span data-i18n="dl.sub">Gratis untuk semua orang, di semua sistem.</span></p>
         </div>
         <div class="os-grid">
           <div class="os" data-os="mac">
@@ -259,8 +266,8 @@
           </div>
           <div class="os" data-os="win">
             <h3>Windows 10/11</h3>
-            <a class="btn btn-primary btn-block" data-asset="x64-setup.exe" href="https://github.com/est57/celah-research-gap/releases/latest">Installer .exe</a>
-            <a class="btn btn-ghost btn-block" data-asset=".msi" href="https://github.com/est57/celah-research-gap/releases/latest">Paket .msi</a>
+            <a class="btn btn-primary btn-block" data-asset="x64-setup.exe" href="https://github.com/est57/celah-research-gap/releases/latest" data-i18n="dl.exe">Installer .exe</a>
+            <a class="btn btn-ghost btn-block" data-asset=".msi" href="https://github.com/est57/celah-research-gap/releases/latest" data-i18n="dl.msi">Paket .msi</a>
           </div>
           <div class="os" data-os="linux">
             <h3>Linux</h3>
@@ -272,15 +279,15 @@
           </div>
         </div>
         <details class="notice">
-          <summary>Muncul peringatan saat membuka installer?</summary>
-          <p>Installer belum ditandatangani sertifikat pengembang berbayar, jadi sistem memberi peringatan sekali.</p>
+          <summary data-i18n="dl.warn">Muncul peringatan saat membuka installer?</summary>
+          <p data-i18n="dl.warn1">Installer belum ditandatangani sertifikat pengembang berbayar, jadi sistem memberi peringatan sekali.</p>
           <ul>
-            <li><b>macOS:</b> buka <code>.dmg</code>, seret Celah ke Applications. Bila muncul "pengembang tidak dikenal", buka Pengaturan Sistem › Privasi &amp; Keamanan, lalu klik <b>Tetap Buka</b>.</li>
-            <li><b>Windows:</b> bila SmartScreen muncul, klik <b>Info selengkapnya</b> lalu <b>Tetap jalankan</b>.</li>
-            <li><b>Linux (AppImage):</b> jalankan <code>chmod +x Celah_*.AppImage</code>, lalu buka berkasnya.</li>
+            <li data-i18n="dl.mac"><b>macOS:</b> buka <code>.dmg</code>, seret Celah ke Applications. Bila muncul "pengembang tidak dikenal", buka Pengaturan Sistem › Privasi &amp; Keamanan, lalu klik <b>Tetap Buka</b>.</li>
+            <li data-i18n="dl.win"><b>Windows:</b> bila SmartScreen muncul, klik <b>Info selengkapnya</b> lalu <b>Tetap jalankan</b>.</li>
+            <li data-i18n="dl.linux"><b>Linux (AppImage):</b> jalankan <code>chmod +x Celah_*.AppImage</code>, lalu buka berkasnya.</li>
           </ul>
         </details>
-        <p class="all-releases"><a href="https://github.com/est57/celah-research-gap/releases" target="_blank" rel="noopener">Semua rilis &amp; catatan perubahan ↗</a></p>
+        <p class="all-releases"><a href="https://github.com/est57/celah-research-gap/releases" target="_blank" rel="noopener" data-i18n="dl.all">Semua rilis &amp; catatan perubahan ↗</a></p>
       </div>
     </div>
   </section>
@@ -291,34 +298,35 @@
   <div class="wrap footer-inner">
     <div class="footer-brand">
       <a href="/" class="brand"><img src="/assets/icon-128.png" alt="" width="24" height="24"><span>Celah</span></a>
-      <p>Analisis bibliometrik dan pencarian celah penelitian yang didukung bukti dokumen.</p>
+      <p data-i18n="ft.tag">Analisis bibliometrik dan pencarian celah penelitian yang didukung bukti dokumen.</p>
     </div>
     <div class="footer-cols">
       <div>
-        <h5>Produk</h5>
-        <a href="#fitur">Fitur</a>
-        <a href="#alur">Alur kerja</a>
-        <a href="#unduh">Unduh</a>
+        <h5 data-i18n="ft.product">Produk</h5>
+        <a href="#fitur" data-i18n="nav.features">Fitur</a>
+        <a href="#alur" data-i18n="nav.workflow">Alur kerja</a>
+        <a href="#unduh" data-i18n="nav.download">Unduh</a>
       </div>
       <div>
-        <h5>Sumber daya</h5>
-        <a href="https://github.com/est57/celah-research-gap/blob/main/docs/PANDUAN.md" target="_blank" rel="noopener">Panduan</a>
-        <a href="https://github.com/est57/celah-research-gap/releases" target="_blank" rel="noopener">Catatan rilis</a>
-        <a href="https://github.com/est57/celah-research-gap/issues" target="_blank" rel="noopener">Laporkan masalah</a>
+        <h5 data-i18n="ft.res">Sumber daya</h5>
+        <a href="https://github.com/est57/celah-research-gap/blob/main/docs/PANDUAN.md" target="_blank" rel="noopener" data-i18n="nav.guide">Panduan</a>
+        <a href="https://github.com/est57/celah-research-gap/releases" target="_blank" rel="noopener" data-i18n="ft.notes">Catatan rilis</a>
+        <a href="https://github.com/est57/celah-research-gap/issues" target="_blank" rel="noopener" data-i18n="ft.issue">Laporkan masalah</a>
       </div>
       <div>
-        <h5>Proyek</h5>
+        <h5 data-i18n="ft.project">Proyek</h5>
         <a href="https://github.com/est57/celah-research-gap" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://github.com/est57/celah-research-gap/blob/main/LICENSE" target="_blank" rel="noopener">Lisensi MIT</a>
+        <a href="https://github.com/est57/celah-research-gap/blob/main/LICENSE" target="_blank" rel="noopener" data-i18n="ft.license">Lisensi MIT</a>
       </div>
     </div>
   </div>
   <div class="wrap footer-base">
-    <span>© <span id="year">2026</span> Celah · celah.org</span>
-    <a href="#top">Kembali ke atas ↑</a>
+    <span>© <span id="year">2026</span> Celah</span>
+    <a href="#top" data-i18n="ft.top">Kembali ke atas ↑</a>
   </div>
 </footer>
 
+<script src="/i18n.js"></script>
 <script src="/main.js" defer></script>
 </body>
 </html>

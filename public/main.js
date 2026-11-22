@@ -57,31 +57,68 @@
     });
   }
 
+  var STR = {
+    id: {
+      download: "Unduh untuk ", browse: "Lihat unduhan", mine: "Sistem Anda", other: "Pilihan lain", all: "Lihat semua unduhan",
+      macIntel: "Untuk Mac Intel. Pakai Apple Silicon (M1 ke atas)?",
+      macArm: "Untuk Apple Silicon (M1 ke atas). Pakai Mac Intel?",
+      macUnknown: "Untuk Apple Silicon (M1 ke atas). Mac Intel, Windows, atau Linux?",
+      win: "Untuk Windows 10/11 (64-bit). Sistem lain?", linux: "Untuk Linux (AppImage). Sistem lain?",
+      none: "Celah adalah aplikasi desktop untuk macOS, Windows, dan Linux"
+    },
+    en: {
+      download: "Download for ", browse: "See downloads", mine: "Your system", other: "Other options", all: "See all downloads",
+      macIntel: "For Intel Macs. On Apple Silicon (M1 or later)?",
+      macArm: "For Apple Silicon (M1 or later). On an Intel Mac?",
+      macUnknown: "For Apple Silicon (M1 or later). Intel Mac, Windows, or Linux?",
+      win: "For Windows 10/11 (64-bit). Another system?", linux: "For Linux (AppImage). Another system?",
+      none: "Celah is a desktop app for macOS, Windows, and Linux"
+    }
+  };
+  var macChip = null;
+
+  function s(key) {
+    var lang = (window.CelahI18n && window.CelahI18n.lang) || "id";
+    return (STR[lang] || STR.id)[key];
+  }
+
+  function renderHero() {
+    var card = document.querySelector('.os[data-os="' + os + '"]');
+    if (!os) {
+      heroBtn.querySelector(".label").textContent = s("browse");
+      heroNote.textContent = s("none");
+      return;
+    }
+    heroBtn.querySelector(".label").textContent = s("download") + NAMES[os];
+    if (card) card.querySelector("h3").dataset.badge = s("mine");
+    var note;
+    if (os === "mac") note = macChip === "intel" ? s("macIntel") : macChip === "arm" ? s("macArm") : s("macUnknown");
+    else note = s(os);
+    heroNote.innerHTML = note + ' <a href="#unduh">' + (os === "mac" ? s("other") : s("all")) + "</a>";
+  }
+
   function setMacVariant(chip) {
-    var intel = chip === "intel";
-    heroBtn.dataset.asset = intel ? "x64.dmg" : "aarch64.dmg";
-    heroNote.innerHTML = (intel ? "Untuk Mac Intel. Pakai Apple Silicon (M1 ke atas)?" : chip === "arm" ? "Untuk Apple Silicon (M1 ke atas). Pakai Mac Intel?" : "Untuk Apple Silicon (M1 ke atas). Mac Intel, Windows, atau Linux?") + ' <a href="#unduh">Pilihan lain</a>';
+    macChip = chip;
+    heroBtn.dataset.asset = chip === "intel" ? "x64.dmg" : "aarch64.dmg";
+    renderHero();
     applyAssets();
   }
 
   if (os) {
     heroBtn.querySelector(".os-icon").innerHTML = ICONS[os];
-    heroBtn.querySelector(".label").textContent = "Unduh untuk " + NAMES[os];
     heroBtn.dataset.asset = PRIMARY[os];
-    var card = document.querySelector('.os[data-os="' + os + '"]');
-    if (card) card.classList.add("current");
+    var osCard = document.querySelector('.os[data-os="' + os + '"]');
+    if (osCard) osCard.classList.add("current");
     if (os === "mac") {
       setMacVariant(null);
       detectMacChip().then(setMacVariant);
-    } else {
-      heroNote.innerHTML = 'Untuk ' + NAMES[os] + (os === "win" ? " 10/11 (64-bit)" : " (AppImage)") + '. Sistem lain? <a href="#unduh">Lihat semua unduhan</a>';
     }
   } else {
-    heroBtn.querySelector(".label").textContent = "Lihat unduhan";
     delete heroBtn.dataset.asset;
     heroBtn.href = "#unduh";
-    heroNote.textContent = "Celah adalah aplikasi desktop untuk macOS, Windows, dan Linux";
   }
+  renderHero();
+  if (window.CelahI18n) window.CelahI18n.onChange(renderHero);
 
   // Resolve direct download links from the latest GitHub release.
   fetch("https://api.github.com/repos/" + REPO + "/releases/latest", { headers: { Accept: "application/vnd.github+json" } })
