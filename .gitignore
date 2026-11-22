@@ -1,0 +1,5 @@
+.firebase/
+.claude/
+*.log
+.DS_Store
+node_modules/
