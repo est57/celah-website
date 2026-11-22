@@ -14,15 +14,16 @@ Atau server statis apa pun, misalnya `npx serve public`.
 
 ## Deploy
 
-**Cloudflare Pages** (otomatis setiap push ke `main`)
+**Cloudflare Workers** (otomatis setiap push ke `main`)
+
+Konfigurasi ada di `wrangler.jsonc` (static assets dari `public/`, halaman 404 dari `public/404.html`).
 
 | Pengaturan | Nilai |
 | --- | --- |
-| Framework preset | None |
 | Build command | *(kosong)* |
-| Build output directory | `public` |
+| Deploy command | `npx wrangler deploy` |
 
-Header cache dan keamanan diatur di `public/_headers`.
+Header cache dan keamanan diatur di `public/_headers`. Cek lokal: `npx wrangler dev`.
 
 **Firebase Hosting** (manual)
 
