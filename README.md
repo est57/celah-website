@@ -25,6 +25,8 @@ Konfigurasi ada di `wrangler.jsonc` (static assets dari `public/`, halaman 404 d
 
 Header cache dan keamanan diatur di `public/_headers`. Cek lokal: `npx wrangler dev`.
 
+Setiap deploy menjalankan `node scripts/stamp.mjs` lebih dulu. Skrip ini menambahkan hash isi file ke alamat `styles.css`, `i18n.js`, dan `main.js` di halaman HTML (`?v=...`), sehingga browser pengunjung langsung mengambil versi terbaru. Jalankan juga sebelum commit agar file di repo ikut sesuai.
+
 **Firebase Hosting** (manual)
 
 ```bash
