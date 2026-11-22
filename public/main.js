@@ -120,18 +120,56 @@
   renderHero();
   if (window.CelahI18n) window.CelahI18n.onChange(renderHero);
 
-  // Resolve direct download links from the latest GitHub release.
-  fetch("https://api.github.com/repos/" + REPO + "/releases/latest", { headers: { Accept: "application/vnd.github+json" } })
-    .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
-    .then(function (rel) {
-      releaseAssets = (rel.assets || []).filter(function (a) { return !/\.sig$/.test(a.name); });
-      applyAssets();
-      if (rel.tag_name) {
-        var v = rel.tag_name.replace(/^v/, "");
-        document.querySelectorAll("[data-version]").forEach(function (el) { el.textContent = v; });
-      }
+  // Latest release from GitHub (drafts and pre-releases are excluded by the API).
+  // Cached for the browser session; every value is validated before use.
+  var RELEASE_PREFIX = "https://github.com/" + REPO + "/releases/download/";
+  var CACHE_KEY = "celah-release";
+  var CACHE_MS = 30 * 60 * 1000;
+
+  function useRelease(rel) {
+    var tag = String(rel.tag || "");
+    if (/^v?\d+\.\d+\.\d+([-+.][0-9A-Za-z.-]+)?$/.test(tag)) {
+      var v = tag.replace(/^v/, "");
+      document.querySelectorAll("[data-version]").forEach(function (el) { el.textContent = v; });
+    }
+    if (rel.url && rel.url.indexOf("https://github.com/" + REPO + "/releases/tag/") === 0) {
+      document.getElementById("version-pill").href = rel.url;
+    }
+    releaseAssets = (rel.assets || []).filter(function (a) {
+      return a && typeof a.name === "string" && !/\.sig$/.test(a.name) &&
+        typeof a.url === "string" && a.url.indexOf(RELEASE_PREFIX) === 0;
+    }).map(function (a) { return { name: a.name, browser_download_url: a.url }; });
+    applyAssets();
+  }
+
+  function readCache() {
+    try {
+      var c = JSON.parse(sessionStorage.getItem(CACHE_KEY) || "null");
+      return c && Date.now() - c.at < CACHE_MS ? c.rel : null;
+    } catch (e) { return null; }
+  }
+
+  var cached = readCache();
+  if (cached) {
+    useRelease(cached);
+  } else {
+    fetch("https://api.github.com/repos/" + REPO + "/releases/latest", {
+      headers: { Accept: "application/vnd.github+json" },
+      credentials: "omit",
+      referrerPolicy: "no-referrer"
     })
-    .catch(function () { /* keep fallback links to the releases page */ });
+      .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+      .then(function (d) {
+        var rel = {
+          tag: d.tag_name,
+          url: d.html_url,
+          assets: (d.assets || []).map(function (a) { return { name: a.name, url: a.browser_download_url }; })
+        };
+        try { sessionStorage.setItem(CACHE_KEY, JSON.stringify({ at: Date.now(), rel: rel })); } catch (e) {}
+        useRelease(rel);
+      })
+      .catch(function () { /* offline or rate-limited: keep the links to the releases page */ });
+  }
 
   // Nav border on scroll
   var nav = document.querySelector(".nav");

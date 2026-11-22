@@ -26,7 +26,6 @@
     "nav.guide": "Guide",
 
     "hero.version": "Version",
-    "hero.free": "free &amp; open-source",
     "hero.title": "Find research gaps, <em>with the evidence to back them</em>",
     "hero.lead": "Map a research field bibliometrically, then review gap candidates and their supporting documents until they become a chapter draft ready to edit. Local, no account, on your computer.",
     "hero.guide": "Read the guide",
