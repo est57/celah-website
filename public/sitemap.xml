@@ -1,2 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://celah.org/</loc></url></urlset>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://celah.org/</loc>
+    <lastmod>2026-11-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://celah.org/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://celah.org/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://celah.org/"/>
+  </url>
+  <url>
+    <loc>https://celah.org/en/</loc>
+    <lastmod>2026-11-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://celah.org/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://celah.org/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://celah.org/"/>
+  </url>
+  <url>
+    <loc>https://celah.org/panduan/</loc>
+    <lastmod>2026-11-23</lastmod>
+  </url>
+</urlset>

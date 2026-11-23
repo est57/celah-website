@@ -1,0 +1,82 @@
+[
+  {
+    "id": {
+      "q": "Apakah Celah gratis?",
+      "a": "Ya. Celah gratis untuk semua orang dan open-source dengan lisensi MIT. Tidak ada akun, langganan, atau batas jumlah proyek."
+    },
+    "en": {
+      "q": "Is Celah free?",
+      "a": "Yes. Celah is free for everyone and open-source under the MIT license. There is no account, subscription, or project limit."
+    }
+  },
+  {
+    "id": {
+      "q": "Apa itu research gap, dan bagaimana Celah menemukannya?",
+      "a": "Research gap adalah topik atau hubungan antartopik yang belum banyak diteliti. Celah memetakan literatur sebuah bidang secara bibliometrik, lalu memakai beberapa detektor (misalnya kombinasi kata kunci yang jarang muncul bersama, tema baru yang belum terhubung, dan future work yang disebut penulis) untuk menyusun daftar kandidat celah beserta skor dan dokumen buktinya."
+    },
+    "en": {
+      "q": "What is a research gap, and how does Celah find one?",
+      "a": "A research gap is a topic, or a link between topics, that has not been studied much. Celah maps a field's literature bibliometrically, then runs several detectors (such as keyword pairs that rarely appear together, emerging themes that are not yet connected, and future work the authors mention) to build a list of gap candidates with scores and evidence documents."
+    }
+  },
+  {
+    "id": {
+      "q": "Data apa saja yang bisa dipakai?",
+      "a": "Anda bisa mencari langsung ke OpenAlex, Crossref, Semantic Scholar, PubMed, Europe PMC, dan arXiv, atau mengimpor ekspor Scopus (CSV, BibTeX, RIS), Web of Science, PubMed, dan RIS dari Zotero, Mendeley, atau EndNote."
+    },
+    "en": {
+      "q": "What data can I use?",
+      "a": "You can search OpenAlex, Crossref, Semantic Scholar, PubMed, Europe PMC, and arXiv directly, or import exports from Scopus (CSV, BibTeX, RIS), Web of Science, PubMed, and RIS files from Zotero, Mendeley, or EndNote."
+    }
+  },
+  {
+    "id": {
+      "q": "Apakah data penelitian saya diunggah ke server?",
+      "a": "Tidak. Semua koleksi dan hasil analisis tersimpan di komputer Anda. Celah hanya menghubungi sumber data riset yang Anda pilih, lewat HTTPS, dan tidak mengirim telemetri."
+    },
+    "en": {
+      "q": "Is my research data uploaded to a server?",
+      "a": "No. All collections and analysis results stay on your computer. Celah only contacts the research data sources you choose, over HTTPS, and sends no telemetry."
+    }
+  },
+  {
+    "id": {
+      "q": "Apa bedanya dengan VOSviewer atau Bibliometrix?",
+      "a": "VOSviewer berfokus pada visualisasi jaringan, dan Bibliometrix adalah paket R (dengan antarmuka biblioshiny) untuk analisis bibliometrik. Celah mencakup analisis bibliometrik dan peta pengetahuan, lalu melanjutkannya ke kandidat research gap dengan bukti dokumen, verifikasi ke literatur terbaru, dan draf bab, tanpa perlu memasang R atau menulis kode."
+    },
+    "en": {
+      "q": "How is it different from VOSviewer or Bibliometrix?",
+      "a": "VOSviewer focuses on network visualization, and Bibliometrix is an R package (with the biblioshiny interface) for bibliometric analysis. Celah covers bibliometric analysis and knowledge maps, then carries on to research gap candidates with evidence documents, checks against recent literature, and a chapter draft, with no R install or coding."
+    }
+  },
+  {
+    "id": {
+      "q": "Apakah hasilnya bisa langsung dipakai untuk skripsi atau tesis?",
+      "a": "Celah menyusun draf research gap serta draf metode dan hasil dengan sitasi APA 7 atau IEEE, dalam bahasa Indonesia atau Inggris. Draf itu adalah titik awal: periksa dokumen buktinya, angka, dan kalimatnya sebelum dipakai dalam tulisan Anda."
+    },
+    "en": {
+      "q": "Can I use the results directly in my thesis?",
+      "a": "Celah drafts a research gap section and a methods and results section with APA 7 or IEEE citations, in Indonesian or English. Treat the drafts as a starting point: check the evidence documents, numbers, and wording before using them in your writing."
+    }
+  },
+  {
+    "id": {
+      "q": "Sistem operasi apa yang didukung?",
+      "a": "macOS (Apple Silicon dan Intel), Windows 10/11 64-bit, dan Linux (AppImage, .deb, .rpm). Celah memperbarui dirinya sendiri lewat Pengaturan › Tentang › Periksa pembaruan."
+    },
+    "en": {
+      "q": "Which operating systems are supported?",
+      "a": "macOS (Apple Silicon and Intel), Windows 10/11 64-bit, and Linux (AppImage, .deb, .rpm). Celah updates itself from Settings › About › Check for updates."
+    }
+  },
+  {
+    "id": {
+      "q": "Apakah perlu koneksi internet?",
+      "a": "Internet dibutuhkan untuk mencari dokumen, melengkapi rujukan, dan memverifikasi celah ke literatur terbaru. Analisis koleksi yang sudah ada berjalan sepenuhnya di komputer Anda."
+    },
+    "en": {
+      "q": "Do I need an internet connection?",
+      "a": "You need internet to search for documents, fill in references, and check gaps against recent literature. Analyzing a collection you already have runs entirely on your computer."
+    }
+  }
+]

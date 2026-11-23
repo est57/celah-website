@@ -77,10 +77,8 @@
   };
   var macChip = null;
 
-  function s(key) {
-    var lang = (window.CelahI18n && window.CelahI18n.lang) || "id";
-    return (STR[lang] || STR.id)[key];
-  }
+  var LANG = document.documentElement.lang === "en" ? "en" : "id";
+  function s(key) { return STR[LANG][key]; }
 
   function renderHero() {
     var card = document.querySelector('.os[data-os="' + os + '"]');
@@ -104,6 +102,10 @@
     applyAssets();
   }
 
+  // Only the home pages have the download button; the guide page skips this part.
+  if (heroBtn) initDownloads();
+
+  function initDownloads() {
   if (os) {
     heroBtn.querySelector(".os-icon").innerHTML = ICONS[os];
     heroBtn.dataset.asset = PRIMARY[os];
@@ -118,7 +120,6 @@
     heroBtn.href = "#unduh";
   }
   renderHero();
-  if (window.CelahI18n) window.CelahI18n.onChange(renderHero);
 
   // Latest release from GitHub (drafts and pre-releases are excluded by the API).
   // Cached for the browser session; every value is validated before use.
@@ -170,6 +171,7 @@
       })
       .catch(function () { /* offline or rate-limited: keep the links to the releases page */ });
   }
+  }
 
   // Nav border on scroll
   var nav = document.querySelector(".nav");
@@ -190,7 +192,7 @@
   });
 
   // Reveal on scroll
-  var targets = document.querySelectorAll(".feature-card, .steps li, .stats, .download-card, .section-head, .app-window.small");
+  var targets = document.querySelectorAll(".feature-card, .steps li, .stats, .download-card, .section-head, .app-window.small, .faq-item");
   if ("IntersectionObserver" in window) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
@@ -200,5 +202,6 @@
     targets.forEach(function (t) { t.classList.add("reveal"); io.observe(t); });
   }
 
-  document.getElementById("year").textContent = new Date().getFullYear();
+  var year = document.getElementById("year");
+  if (year) year.textContent = new Date().getFullYear();
 })();

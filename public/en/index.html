@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="meta.title">Celah: Free Research Gap Finder &amp; Bibliometric Analysis App</title>
+  <meta name="description" data-i18n-content="meta.desc" content="Find research gaps for your thesis or dissertation with bibliometric analysis of Scopus, Web of Science, PubMed, and OpenAlex data. A free, open-source desktop app; your data stays on your computer.">
+  <meta name="theme-color" content="#f4f3f0">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://celah.org/en/">
+  <link rel="alternate" hreflang="id" href="https://celah.org/">
+  <link rel="alternate" hreflang="en" href="https://celah.org/en/">
+  <link rel="alternate" hreflang="x-default" href="https://celah.org/">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/icon-512.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Celah">
+  <meta property="og:url" content="https://celah.org/en/">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="id_ID">
+  <meta property="og:title" data-i18n-content="og.title" content="Celah: find research gaps, with the evidence to back them">
+  <meta property="og:description" data-i18n-content="og.desc" content="A free desktop app for bibliometric analysis and research gap finding. Local, open-source, no account.">
+  <meta property="og:image" content="https://celah.org/assets/og-en.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" data-i18n-content="og.alt" content="Celah: an app for finding research gaps backed by document evidence">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://celah.org/assets/og-en.png">
+  <!-- LD:START -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://celah.org/#website",
+      "url": "https://celah.org/",
+      "name": "Celah",
+      "inLanguage": [
+        "id",
+        "en"
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://celah.org/#app",
+      "name": "Celah",
+      "alternateName": "Celah Research Gap",
+      "description": "Find research gaps for your thesis or dissertation with bibliometric analysis of Scopus, Web of Science, PubMed, and OpenAlex data. A free, open-source desktop app; your data stays on your computer.",
+      "url": "https://celah.org/en/",
+      "applicationCategory": "EducationalApplication",
+      "applicationSubCategory": "Bibliometric analysis and research gap finding",
+      "operatingSystem": "macOS, Windows, Linux",
+      "softwareVersion": "0.1.3",
+      "downloadUrl": "https://github.com/est57/celah-research-gap/releases/latest",
+      "releaseNotes": "https://github.com/est57/celah-research-gap/releases/tag/v0.1.3",
+      "license": "https://opensource.org/licenses/MIT",
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "image": "https://celah.org/assets/og-en.png",
+      "screenshot": [
+        "https://celah.org/assets/gap-explorer.webp",
+        "https://celah.org/assets/peta-tematik.webp",
+        "https://celah.org/assets/tema-peluang.webp",
+        "https://celah.org/assets/laporan.webp"
+      ],
+      "inLanguage": [
+        "id",
+        "en"
+      ],
+      "sameAs": [
+        "https://github.com/est57/celah-research-gap"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://celah.org/en/#faq",
+      "inLanguage": "en",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is Celah free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Celah is free for everyone and open-source under the MIT license. There is no account, subscription, or project limit."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a research gap, and how does Celah find one?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A research gap is a topic, or a link between topics, that has not been studied much. Celah maps a field's literature bibliometrically, then runs several detectors (such as keyword pairs that rarely appear together, emerging themes that are not yet connected, and future work the authors mention) to build a list of gap candidates with scores and evidence documents."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What data can I use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can search OpenAlex, Crossref, Semantic Scholar, PubMed, Europe PMC, and arXiv directly, or import exports from Scopus (CSV, BibTeX, RIS), Web of Science, PubMed, and RIS files from Zotero, Mendeley, or EndNote."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my research data uploaded to a server?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. All collections and analysis results stay on your computer. Celah only contacts the research data sources you choose, over HTTPS, and sends no telemetry."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is it different from VOSviewer or Bibliometrix?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "VOSviewer focuses on network visualization, and Bibliometrix is an R package (with the biblioshiny interface) for bibliometric analysis. Celah covers bibliometric analysis and knowledge maps, then carries on to research gap candidates with evidence documents, checks against recent literature, and a chapter draft, with no R install or coding."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use the results directly in my thesis?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Celah drafts a research gap section and a methods and results section with APA 7 or IEEE citations, in Indonesian or English. Treat the drafts as a starting point: check the evidence documents, numbers, and wording before using them in your writing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which operating systems are supported?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "macOS (Apple Silicon and Intel), Windows 10/11 64-bit, and Linux (AppImage, .deb, .rpm). Celah updates itself from Settings › About › Check for updates."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need an internet connection?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You need internet to search for documents, fill in references, and check gaps against recent literature. Analyzing a collection you already have runs entirely on your computer."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <!-- LD:END -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Serif:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css?v=8c34a6a44d">
+  <script src="/i18n.js?v=343e65ff29"></script>
+</head>
+<body>
+
+<header class="nav" id="top">
+  <div class="nav-inner">
+    <a href="/en/" class="brand" data-home aria-label="Celah, home" data-i18n-aria="aria.home">
+      <img src="/assets/icon-128.png" alt="" width="28" height="28">
+      <span>Celah</span>
+    </a>
+    <nav class="nav-links" aria-label="Main" data-i18n-aria="aria.main">
+      <a href="/en/#fitur" data-i18n="nav.features">Features</a>
+      <a href="/en/#alur" data-i18n="nav.workflow">Workflow</a>
+      <a href="/en/#unduh" data-i18n="nav.download">Download</a>
+      <a href="/panduan/" data-i18n="nav.guide">Guide</a>
+    </nav>
+    <div class="nav-actions">
+      <nav class="lang-switch" aria-label="Language" data-i18n-aria="aria.lang">
+        <a href="/" hreflang="id" lang="id" data-lang="id" title="Bahasa Indonesia">ID</a>
+        <a href="/en/" hreflang="en" lang="en" data-lang="en" aria-current="true" title="English">EN</a>
+      </nav>
+      <a href="/en/#unduh" class="chip chip-light">
+        <img src="/assets/icon-128.png" alt="" width="16" height="16"> <span data-i18n="nav.download">Download</span>
+      </a>
+      <a href="https://github.com/est57/celah-research-gap" class="chip chip-dark" target="_blank" rel="noopener" aria-label="Source code on GitHub" data-i18n-aria="aria.github">
+        <svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        <span class="hide-sm">GitHub</span>
+      </a>
+      <button class="menu-btn" aria-label="Open menu" data-i18n-aria="aria.menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile menu" data-i18n-aria="aria.mobile" hidden>
+    <a href="/en/#fitur" data-i18n="nav.features">Features</a>
+    <a href="/en/#alur" data-i18n="nav.workflow">Workflow</a>
+    <a href="/en/#unduh" data-i18n="nav.download">Download</a>
+    <a href="/panduan/" data-i18n="nav.guide">Guide</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-pattern" aria-hidden="true"></div>
+    <div class="wrap hero-inner">
+      <a class="eyebrow-pill" id="version-pill" href="https://github.com/est57/celah-research-gap/releases/tag/v0.1.3" target="_blank" rel="noopener"><span class="dot"></span> <span data-i18n="hero.version">Version</span> <span data-version>0.1.3</span></a>
+      <h1 data-i18n="hero.title">Find research gaps, <em>with the evidence to back them</em></h1>
+      <p class="lead" data-i18n="hero.lead">A free app for finding research gaps. Map a research field bibliometrically, then review gap candidates and their supporting documents until they become a chapter draft ready to edit. Local, no account, on your computer.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" id="hero-download" href="https://github.com/est57/celah-research-gap/releases/latest">
+          <span class="os-icon" aria-hidden="true"></span>
+          <span class="label" data-i18n="hero.dl">Download Celah</span>
+        </a>
+        <a class="btn btn-ghost" href="/panduan/"><span data-i18n="hero.guide">Read the guide</span> <span aria-hidden="true">→</span></a>
+      </div>
+      <p class="hero-note" id="hero-note" data-i18n="hero.note">Available for macOS, Windows, and Linux</p>
+    </div>
+
+    <div class="wrap-wide">
+      <figure class="app-window">
+        <div class="app-bar" aria-hidden="true">
+          <span class="lights"><i></i><i></i><i></i></span>
+          <span class="app-title"><img src="/assets/icon-128.png" alt="" width="14" height="14"> Celah — Gap Explorer</span>
+          <span></span>
+        </div>
+        <img src="/assets/gap-explorer.webp" width="1440" height="874" data-i18n-alt="alt.hero" alt="Gap Explorer in Celah: a list of research gap candidates with scores, evidence documents, recent literature checks, and suggested research questions" fetchpriority="high">
+      </figure>
+    </div>
+  </section>
+
+  <!-- SOURCES STRIP -->
+  <section class="sources" aria-labelledby="sources-title">
+    <div class="wrap">
+      <h2 id="sources-title" class="small-title" data-i18n="sources.title">Pulls data from open sources and the export files you already have</h2>
+      <p class="small-sub" data-i18n="sources.sub">Search six databases directly, or import exports from reference managers and subscription databases</p>
+    </div>
+    <div class="marquee">
+      <div class="marquee-track">
+        <ul class="logo-row">
+          <li>OpenAlex</li><li>Crossref</li><li>Semantic Scholar</li><li>PubMed</li><li>Europe PMC</li><li>arXiv</li>
+          <li>Scopus</li><li>Web of Science</li><li>Zotero</li><li>Mendeley</li><li>EndNote</li><li>SCImago SJR</li>
+        </ul>
+        <ul class="logo-row" aria-hidden="true">
+          <li>OpenAlex</li><li>Crossref</li><li>Semantic Scholar</li><li>PubMed</li><li>Europe PMC</li><li>arXiv</li>
+          <li>Scopus</li><li>Web of Science</li><li>Zotero</li><li>Mendeley</li><li>EndNote</li><li>SCImago SJR</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features" id="fitur">
+    <div class="wrap">
+      <header class="section-head">
+        <h2 data-i18n="feat.title">From thousands of documents <strong>to one gap</strong> you can defend</h2>
+        <p data-i18n="feat.sub">Every gap candidate comes with a score, evidence documents, and research questions. You make the call.</p>
+      </header>
+
+      <article class="feature-card">
+        <div class="feature-text">
+          <span class="kicker" data-i18n="f1.kicker">Collect &amp; clean</span>
+          <h3 data-i18n="f1.title">A clean collection before you analyze</h3>
+          <p class="accent-line" data-i18n="f1.accent">Search six sources at once, or import Scopus, Web of Science, PubMed, and RIS.</p>
+          <p data-i18n="f1.body">Merge duplicates across sources, unify keyword synonyms and author name spellings, fill in reference lists through Crossref, and add journal quartiles from SJR.</p>
+          <ul class="ticks">
+            <li data-i18n="f1.t1">Cross-source duplicate merging</li>
+            <li data-i18n="f1.t2">Keyword synonyms apply to every analysis</li>
+            <li data-i18n="f1.t3">Metadata quality report per field</li>
+          </ul>
+        </div>
+        <div class="feature-media">
+          <img src="/assets/ringkasan.webp" width="1440" height="874" loading="lazy" data-i18n-alt="alt.f1" alt="Overview screen: main collection info, annual production, and a three-field plot">
+        </div>
+      </article>
+
+      <article class="feature-card reverse">
+        <div class="feature-text">
+          <span class="kicker" data-i18n="f2.kicker">Knowledge structure</span>
+          <h3 data-i18n="f2.title">See the shape of a field</h3>
+          <p class="accent-line" data-i18n="f2.accent">Thematic map, theme evolution, co-occurrence networks, co-citation, bibliographic coupling, historiograph, and RPYS.</p>
+          <p data-i18n="f2.body">Full descriptive analysis: annual production, citations, Bradford's and Lotka's laws, countries and international collaboration. Network charts can be zoomed, panned, and saved as SVG or PNG.</p>
+        </div>
+        <div class="feature-media">
+          <img src="/assets/peta-tematik.webp" width="1440" height="874" loading="lazy" data-i18n-alt="alt.f2" alt="Thematic map with four quadrants: motor, niche, emerging or declining, and basic themes">
+        </div>
+      </article>
+
+      <article class="feature-card">
+        <div class="feature-text">
+          <span class="kicker" data-i18n="f3.kicker">Gap finding</span>
+          <h3 data-i18n="f3.title">Gap candidates, not guesses</h3>
+          <p class="accent-line" data-i18n="f3.accent">Opportunity themes and Gap Explorer combine several detectors into one ranked list.</p>
+          <p data-i18n="f3.body">Each candidate has novelty, evidence, and momentum scores, the documents that support it, and suggested research questions. Test your own gap ideas, then verify them against recent literature outside your collection before you write.</p>
+          <ul class="ticks">
+            <li data-i18n="f3.t1">Novelty · evidence · momentum scores</li>
+            <li data-i18n="f3.t2">Review: accepted, needs check, rejected</li>
+            <li data-i18n="f3.t3">Re-check against papers from the last two years</li>
+          </ul>
+        </div>
+        <div class="feature-media">
+          <img src="/assets/tema-peluang.webp" width="1440" height="874" loading="lazy" data-i18n-alt="alt.f3" alt="Opportunity themes screen: fast-growing themes that rarely connect to the main themes">
+        </div>
+      </article>
+
+      <article class="feature-card reverse">
+        <div class="feature-text">
+          <span class="kicker" data-i18n="f4.kicker">Output</span>
+          <h3 data-i18n="f4.title">From gap to chapter draft</h3>
+          <p class="accent-line" data-i18n="f4.accent">A research gap draft plus a methods &amp; results draft, ready to edit.</p>
+          <p data-i18n="f4.body">Choose APA 7 or IEEE citations, in Indonesian or English. Export BibTeX, RIS, CSV, and chart images for your manuscript.</p>
+        </div>
+        <div class="feature-media">
+          <img src="/assets/laporan.webp" width="1440" height="874" loading="lazy" data-i18n-alt="alt.f4" alt="A research gap chapter draft with its reference list">
+        </div>
+      </article>
+
+      <!-- PRIVACY -->
+      <article class="feature-card center">
+        <span class="kicker" data-i18n="priv.kicker">Local &amp; secure</span>
+        <h3 class="big" data-i18n="priv.title">Your research data never leaves your computer</h3>
+        <p class="center-lead" data-i18n="priv.lead">No account. No subscription. No cloud sync. Celah only contacts the data sources you choose, and API keys are stored in the system keychain, not in a file.</p>
+        <div class="trait-grid">
+          <div class="trait"><b data-i18n="priv.a1">No account</b><span data-i18n="priv.a2">Open it and start working.</span></div>
+          <div class="trait"><b data-i18n="priv.b1">System keychain</b><span data-i18n="priv.b2">API keys stored securely.</span></div>
+          <div class="trait"><b>Open-source MIT</b><span data-i18n="priv.c2">Anyone can inspect the code.</span></div>
+          <div class="trait"><b data-i18n="priv.d1">Automatic updates</b><span data-i18n="priv.d2">Settings › About › Check for updates.</span></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- WORKFLOW -->
+  <section class="workflow" id="alur">
+    <div class="wrap">
+      <header class="section-head">
+        <h2 data-i18n="wf.title">Six steps, <strong>one clear workflow</strong></h2>
+        <p data-i18n="wf.sub">Celah's first screen always shows where you are and what comes next.</p>
+      </header>
+      <ol class="steps">
+        <li><span class="n">01</span><h4 data-i18n="wf.s1">Collect</h4><p data-i18n="wf.s1d">Enter a research topic and pick sources, or import export files.</p></li>
+        <li><span class="n">02</span><h4 data-i18n="wf.s2">Clean</h4><p data-i18n="wf.s2d">Merge duplicates, keyword synonyms, and author names.</p></li>
+        <li><span class="n">03</span><h4 data-i18n="wf.s3">Describe</h4><p data-i18n="wf.s3d">Production, citations, sources, authors, and countries.</p></li>
+        <li><span class="n">04</span><h4 data-i18n="wf.s4">Map</h4><p data-i18n="wf.s4d">The field's conceptual, intellectual, and social structure.</p></li>
+        <li><span class="n">05</span><h4 data-i18n="wf.s5">Find gaps</h4><p data-i18n="wf.s5d">Review candidates, mark accepted ones, verify against recent literature.</p></li>
+        <li><span class="n">06</span><h4 data-i18n="wf.s6">Write</h4><p data-i18n="wf.s6d">Assemble the chapter draft and export references.</p></li>
+      </ol>
+      <figure class="app-window small">
+        <div class="app-bar" aria-hidden="true">
+          <span class="lights"><i></i><i></i><i></i></span>
+          <span class="app-title" data-i18n="nav.workflow">Workflow</span>
+          <span></span>
+        </div>
+        <img src="/assets/alur-kerja.webp" width="1440" height="874" loading="lazy" data-i18n-alt="alt.wf" alt="Celah's workflow screen with six research steps">
+      </figure>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats-band" aria-label="Celah in numbers" data-i18n-aria="aria.stats">
+    <div class="wrap stats">
+      <div><b>6</b><span data-i18n="st.1">open search sources</span></div>
+      <div><b>4</b><span data-i18n="st.2">export formats to import</span></div>
+      <div><b>20+</b><span data-i18n="st.3">analysis screens</span></div>
+      <div><b>2</b><span data-i18n="st.4">languages: Indonesian &amp; English</span></div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery">
+    <div class="wrap">
+      <header class="section-head">
+        <h2 data-i18n="gal.title">Designed for <strong>reading data</strong>, not decoration</h2>
+      </header>
+      <figure class="app-window small">
+        <div class="app-bar" aria-hidden="true">
+          <span class="lights"><i></i><i></i><i></i></span>
+          <span class="app-title" data-i18n="gal.win">Countries &amp; collaboration</span>
+          <span></span>
+        </div>
+        <img src="/assets/negara.webp" width="1440" height="874" loading="lazy" data-i18n-alt="alt.gal" alt="World map of research output and the country collaboration network">
+      </figure>
+    </div>
+  </section>
+
+  <!-- DOWNLOAD -->
+  <section class="download" id="unduh">
+    <div class="wrap">
+      <div class="download-card">
+        <div class="download-head">
+          <img src="/assets/icon-512.png" alt="" width="72" height="72">
+          <h2 data-i18n="dl.title">Download Celah</h2>
+          <p><span data-i18n="hero.version">Version</span> <span data-version>0.1.3</span>. <span data-i18n="dl.sub">Free for everyone, on every system.</span></p>
+        </div>
+        <div class="os-grid">
+          <div class="os" data-os="mac">
+            <h3>macOS</h3>
+            <a class="btn btn-primary btn-block" data-asset="aarch64.dmg" href="https://github.com/est57/celah-research-gap/releases/latest">Apple Silicon (M1+)</a>
+            <a class="btn btn-ghost btn-block" data-asset="x64.dmg" href="https://github.com/est57/celah-research-gap/releases/latest">Intel</a>
+          </div>
+          <div class="os" data-os="win">
+            <h3>Windows 10/11</h3>
+            <a class="btn btn-primary btn-block" data-asset="x64-setup.exe" href="https://github.com/est57/celah-research-gap/releases/latest" data-i18n="dl.exe">.exe installer</a>
+            <a class="btn btn-ghost btn-block" data-asset=".msi" href="https://github.com/est57/celah-research-gap/releases/latest" data-i18n="dl.msi">.msi package</a>
+          </div>
+          <div class="os" data-os="linux">
+            <h3>Linux</h3>
+            <a class="btn btn-primary btn-block" data-asset=".AppImage" href="https://github.com/est57/celah-research-gap/releases/latest">AppImage</a>
+            <div class="btn-pair">
+              <a class="btn btn-ghost" data-asset=".deb" href="https://github.com/est57/celah-research-gap/releases/latest">.deb</a>
+              <a class="btn btn-ghost" data-asset=".rpm" href="https://github.com/est57/celah-research-gap/releases/latest">.rpm</a>
+            </div>
+          </div>
+        </div>
+        <details class="notice">
+          <summary data-i18n="dl.warn">Seeing a warning when you open the installer?</summary>
+          <p data-i18n="dl.warn1">The installers are not yet signed with a paid developer certificate, so your system warns you once.</p>
+          <ul>
+            <li data-i18n="dl.mac"><b>macOS:</b> open the <code>.dmg</code> and drag Celah to Applications. If you see “unidentified developer”, open System Settings › Privacy &amp; Security, then click <b>Open Anyway</b>.</li>
+            <li data-i18n="dl.win"><b>Windows:</b> if SmartScreen appears, click <b>More info</b> and then <b>Run anyway</b>.</li>
+            <li data-i18n="dl.linux"><b>Linux (AppImage):</b> run <code>chmod +x Celah_*.AppImage</code>, then open the file.</li>
+          </ul>
+        </details>
+        <p class="all-releases"><a href="https://github.com/est57/celah-research-gap/releases" target="_blank" rel="noopener" data-i18n="dl.all">All releases &amp; changelog ↗</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq" aria-labelledby="faq-title">
+    <div class="wrap">
+      <header class="section-head">
+        <h2 id="faq-title" data-i18n="faq.title">Frequently <strong>asked questions</strong></h2>
+      </header>
+      <!-- FAQ:START -->
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Is Celah free?</summary>
+          <p>Yes. Celah is free for everyone and open-source under the MIT license. There is no account, subscription, or project limit.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What is a research gap, and how does Celah find one?</summary>
+          <p>A research gap is a topic, or a link between topics, that has not been studied much. Celah maps a field's literature bibliometrically, then runs several detectors (such as keyword pairs that rarely appear together, emerging themes that are not yet connected, and future work the authors mention) to build a list of gap candidates with scores and evidence documents.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What data can I use?</summary>
+          <p>You can search OpenAlex, Crossref, Semantic Scholar, PubMed, Europe PMC, and arXiv directly, or import exports from Scopus (CSV, BibTeX, RIS), Web of Science, PubMed, and RIS files from Zotero, Mendeley, or EndNote.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Is my research data uploaded to a server?</summary>
+          <p>No. All collections and analysis results stay on your computer. Celah only contacts the research data sources you choose, over HTTPS, and sends no telemetry.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How is it different from VOSviewer or Bibliometrix?</summary>
+          <p>VOSviewer focuses on network visualization, and Bibliometrix is an R package (with the biblioshiny interface) for bibliometric analysis. Celah covers bibliometric analysis and knowledge maps, then carries on to research gap candidates with evidence documents, checks against recent literature, and a chapter draft, with no R install or coding.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can I use the results directly in my thesis?</summary>
+          <p>Celah drafts a research gap section and a methods and results section with APA 7 or IEEE citations, in Indonesian or English. Treat the drafts as a starting point: check the evidence documents, numbers, and wording before using them in your writing.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Which operating systems are supported?</summary>
+          <p>macOS (Apple Silicon and Intel), Windows 10/11 64-bit, and Linux (AppImage, .deb, .rpm). Celah updates itself from Settings › About › Check for updates.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Do I need an internet connection?</summary>
+          <p>You need internet to search for documents, fill in references, and check gaps against recent literature. Analyzing a collection you already have runs entirely on your computer.</p>
+        </details>
+      </div>
+  <!-- FAQ:END -->
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="brand" data-home><img src="/assets/icon-128.png" alt="" width="24" height="24"><span>Celah</span></a>
+      <p data-i18n="ft.tag">Bibliometric analysis and research gap finding backed by document evidence.</p>
+    </div>
+    <div class="footer-cols">
+      <div>
+        <h5 data-i18n="ft.product">Product</h5>
+        <a href="/en/#fitur" data-i18n="nav.features">Features</a>
+        <a href="/en/#alur" data-i18n="nav.workflow">Workflow</a>
+        <a href="/en/#unduh" data-i18n="nav.download">Download</a>
+      </div>
+      <div>
+        <h5 data-i18n="ft.res">Resources</h5>
+        <a href="/panduan/" data-i18n="nav.guide">Guide</a>
+        <a href="https://github.com/est57/celah-research-gap/releases" target="_blank" rel="noopener" data-i18n="ft.notes">Release notes</a>
+        <a href="https://github.com/est57/celah-research-gap/issues" target="_blank" rel="noopener" data-i18n="ft.issue">Report an issue</a>
+      </div>
+      <div>
+        <h5 data-i18n="ft.project">Project</h5>
+        <a href="https://github.com/est57/celah-research-gap" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/est57/celah-research-gap/blob/main/LICENSE" target="_blank" rel="noopener" data-i18n="ft.license">MIT License</a>
+      </div>
+    </div>
+  </div>
+  <div class="wrap footer-base">
+    <span>© <span id="year">2026</span> Celah</span>
+    <a href="/en/#top" data-i18n="ft.top">Back to top ↑</a>
+  </div>
+</footer>
+
+<script src="/main.js?v=f913885e3f" defer></script>
+</body>
+</html>

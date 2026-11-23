@@ -3,7 +3,7 @@
   "name": "celah-website",
   "compatibility_date": "2025-09-01",
   "build": {
-    "command": "node scripts/stamp.mjs"
+    "command": "node scripts/build.mjs"
   },
   "assets": {
     "directory": "./public",
