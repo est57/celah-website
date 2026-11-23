@@ -8,6 +8,7 @@
 // 4. Generate the guide page (public/panduan/index.html) from content/panduan.md.
 // 5. Write sitemap.xml.
 // 6. Add content hashes to CSS/JS URLs so browsers fetch fresh files.
+// 7. On Cloudflare builds, report changed pages to IndexNow (Bing and others).
 //
 // Fails loudly (exit 1) when an English translation is missing, so a broken
 // page is never deployed.
@@ -352,9 +353,60 @@ const stamp = (html) => {
   return html;
 };
 
-write(ID_PATH, stamp(idHtml));
-write(join(PUBLIC, "en", "index.html"), stamp(enHtml));
-write(join(PUBLIC, "panduan", "index.html"), stamp(guidePage(stamp(idHtml))));
+// A content fingerprint per page, so a deploy can tell which pages changed.
+const fingerprint = (html) => {
+  const clean = html.replace(/\n  <meta name="celah-build" content="[0-9a-f]+">/, "");
+  const h = createHash("sha256").update(clean).digest("hex").slice(0, 16);
+  return clean.replace('<meta charset="utf-8">', `<meta charset="utf-8">\n  <meta name="celah-build" content="${h}">`);
+};
+
+const PAGES = {
+  [`${SITE}/`]: fingerprint(stamp(idHtml)),
+  [`${SITE}/en/`]: fingerprint(stamp(enHtml)),
+  [`${SITE}/panduan/`]: fingerprint(stamp(guidePage(stamp(idHtml)))),
+};
+write(ID_PATH, PAGES[`${SITE}/`]);
+write(join(PUBLIC, "en", "index.html"), PAGES[`${SITE}/en/`]);
+write(join(PUBLIC, "panduan", "index.html"), PAGES[`${SITE}/panduan/`]);
 write(join(PUBLIC, "404.html"), stamp(read(join(PUBLIC, "404.html"))));
 write(join(PUBLIC, "sitemap.xml"), sitemap);
 console.log(`build ok: version ${version}, ${Object.entries(hashes).map(([a, h]) => `${a}?v=${h}`).join(", ")}`);
+
+// ---------- 7. IndexNow (Bing, Yandex, and others; Google does not use it) ----------
+// Runs only on Cloudflare builds (WORKERS_CI) or when asked: INDEXNOW=1 (changed
+// pages) / INDEXNOW=all (every page). Reports only pages whose fingerprint differs
+// from the live site. Never fails the build.
+const mode = process.env.INDEXNOW || (process.env.WORKERS_CI || process.env.CI ? "1" : "");
+if (mode) {
+  try {
+    const { key } = JSON.parse(read(join(CONTENT, "indexnow.json")));
+    const keyLocation = `${SITE}/${key}.txt`;
+    const live = await fetchWithTimeout(keyLocation).then((r) => r.text()).catch(() => "");
+    if (live.trim() !== key) {
+      console.log("indexnow: key file not live yet, skipping this time");
+    } else {
+      const changed = [];
+      for (const [url, html] of Object.entries(PAGES)) {
+        const mine = html.match(/name="celah-build" content="([0-9a-f]+)"/)[1];
+        const theirs = await fetchWithTimeout(url)
+          .then((r) => r.text())
+          .then((t) => (t.match(/name="celah-build" content="([0-9a-f]+)"/) || [])[1])
+          .catch(() => null);
+        if (mode === "all" || mine !== theirs) changed.push(url);
+      }
+      if (!changed.length) {
+        console.log("indexnow: no page changed");
+      } else {
+        const res = await fetch("https://api.indexnow.org/indexnow", {
+          method: "POST",
+          headers: { "Content-Type": "application/json; charset=utf-8" },
+          body: JSON.stringify({ host: new URL(SITE).host, key, keyLocation, urlList: changed }),
+          signal: AbortSignal.timeout(8000),
+        });
+        console.log(`indexnow: HTTP ${res.status} for ${changed.join(", ")}`);
+      }
+    }
+  } catch (e) {
+    console.warn(`indexnow: skipped (${e.message})`);
+  }
+}

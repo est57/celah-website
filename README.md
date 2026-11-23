@@ -35,6 +35,7 @@ Jalankan setelah mengubah teks atau tampilan, lalu commit hasilnya. Skrip ini:
 4. Membuat halaman panduan `public/panduan/index.html` dari `content/panduan.md`.
 5. Menulis `public/sitemap.xml`.
 6. Menambahkan hash isi file ke alamat CSS/JS (`?v=...`) supaya browser selalu mengambil versi terbaru.
+7. Saat build di Cloudflare: melaporkan halaman yang berubah ke [IndexNow](https://www.indexnow.org/) (Bing, Yandex, dan lainnya; Google tidak memakai IndexNow). Setiap halaman punya sidik jari isi (`<meta name="celah-build">`); hanya halaman yang sidik jarinya berbeda dari versi live yang dilaporkan. Kunci IndexNow ada di `content/indexnow.json` dan file `public/<kunci>.txt`. Kunci ini memang publik, jangan dihapus. Laporan manual: `INDEXNOW=1 node scripts/build.mjs` (halaman berubah) atau `INDEXNOW=all node scripts/build.mjs` (semua halaman).
 
 Mengubah teks:
 
